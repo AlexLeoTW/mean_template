@@ -6,13 +6,35 @@
 ## 進度:
 
  - [ ] 參考 MEAN Web Development 第三章建立檔案結構
-     - [ ] 資料夾目錄
+     - [x] 資料夾目錄
      - [x] express routes
-     - [ ] express static
+     - [x] express static
      - [x] ejs views
+     - [x] 個別環境參數: `env`
+ - [ ] 加入 HTTPS 連線能力
+     - [ ] SSL Self-Sign
+     - [ ] `https` package
+     - [ ] env config
+ - [ ] 加入 / 更新 相依套件
+     - [x] `morgan @1.17.2`
+     - [x] `debug @1.8.2`
+     - [x] `cookie-parser @1.4.3`
+     - [x] `serve-favicon @2.4.3`
+ - [ ] 改善 console 輸出
+     - [ ] 使用 `debug` 重寫
+     - [ ] 區分環境別
+ - [ ] 以 ES6 重構
+     - [ ] 使用 `const`
+     - [ ] 使用 `let`
  - [ ] 使用 Angular.js
      - [x] bower package manager
-     - [ ] bootstrap Angular.js
+     - [x] bootstrap Angular.js
+          - [x] Auto-Bootstrap (removed)
+          - [x] Manual-Bootstrap
+     - [ ] load html fraction
+     - [ ] make HTTP RESTful request
+ - [ ] 整合 Mongo.DB
+ - [ ] 加入 User-Authentication 機制
 
 [mean_template]: https://github.com/AlexLeoTW/mean_template
 

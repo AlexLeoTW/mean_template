@@ -1,0 +1,7 @@
+{
+  "node": false,
+  "browser": true,
+  "esversion": 6,
+  "indent": 2,
+  "globals": "angular"
+}

@@ -1,25 +1,34 @@
 var express = require('express'),
+    config = require('./config'),
     path = require('path'),
     logger = require('morgan'),
-    compress = require('compression');
+    compress = require('compression'),
+    favicon = require('serve-favicon'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser');
 
 module.exports = function() {
-    var app = express();
+  var app = express();
 
-    app.set('views', path.join(__dirname, '../app/views'));
-    app.set('view engine', 'ejs');
+  app.set('views', path.join(__dirname, '..', 'app', 'views'));
+  app.set('view engine', 'ejs');
+  app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 
-    // Use the 'NDOE_ENV' variable to activate the 'morgan' logger or 'compress' middleware
-	if (process.env.NODE_ENV === 'development') {
-		app.use(logger('dev'));
-	} else if (process.env.NODE_ENV === 'production') {
-		app.use(compress());
-	}
+  // Use the 'NDOE_ENV' variable to activate the 'morgan' logger or 'compress' middleware
+  if (process.env.NODE_ENV === 'development') {
+    app.use(logger('dev'));
+  } else if (process.env.NODE_ENV === 'production') {
+    app.use(compress());
+  }
 
-    require('../app/routes/index.server.routes.js')(app);
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(cookieParser());
 
-    // Configure static file serving
-	app.use(express.static('./public'));
+  require('../app/routes/index.server.routes.js')(app);
 
-    return app;
+  // Configure static file serving
+  app.use(express.static('./public'));
+
+  return app;
 };

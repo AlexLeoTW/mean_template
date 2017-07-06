@@ -1,11 +1,13 @@
 // Set the 'NODE_ENV' variable
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var express = require('./config/express');
+var express = require('./config/express'),
+    config = require('./config/config');
+    debug = require('debug')(`${config.appName}:server`);
 
 var app = express();
 
-app.listen(3000);
-module.exports = app;
+app.listen(config.port);
+debug(`${config.appName} listening on port ${config.port}`);
 
-console.log('Server running at http://localhost:3000/');
+module.exports = app;
