@@ -3,6 +3,7 @@
 	"version": "0.0.7",
 	"dependencies": {
 		"angular": "1.6.x",
+		"angular-route": "1.6.x",
 		"bootstrap":"~3.3.7"
 	}
 }

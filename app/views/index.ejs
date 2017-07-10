@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <%# <meta http-equiv="Content-Security-Policy" default-src='http://localhost:3000' connect-src='self http://localhost:3000' style-src 'self'>%>
+    <meta http-equiv="Content-Security-Policy"
+            content="default-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
 
@@ -29,16 +32,20 @@
       <input type="text" id="text2" ng-model="name">
     </section>%>
 
-    <section ng-include="'example/views/example.client.view.html'"></section>
+    <%# <section ng-include="'example/views/example.client.view.html'"></section>%>
+
+    <section ng-view></section>
 
     </div>
     <script src="/lib/angular/angular.js"></script>
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
 
     <!-- Bootstrap AngularJS application -->
     <script src="/application.js"></script>
     <script src="/example/example.client.module.js"></script>
     <script src="/example/controllers/example.client.controller.js"></script>
+    <script src="/example/config/example.client.routes.js"></script>
   </body>
 </html>

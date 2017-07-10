@@ -31,7 +31,12 @@
      - [x] bootstrap Angular.js
           - [x] Auto-Bootstrap (removed)
           - [x] Manual-Bootstrap
-     - [ ] load html fraction
+     - [x] load html fraction
+     - [x] load `ng-view` using `ngRoute`
+          - [x] redirect route
+     - [ ] `Content-Security-Policy` config
+          - [x] `helmet-csp` module
+          - [ ] `helmet-csp` config
      - [ ] make HTTP RESTful request
  - [ ] 整合 Mongo.DB
  - [ ] 加入 User-Authentication 機制
