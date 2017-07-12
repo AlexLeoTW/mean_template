@@ -6,7 +6,8 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
-    csp = require('helmet-csp');
+    csp = require('helmet-csp'),
+    cors = require('cors');
 
 module.exports = function() {
   var app = express();
@@ -25,17 +26,19 @@ module.exports = function() {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
+  app.use(cors({
+    origin: config.host.indexOf("localhost") >= 0 ? '*' : config.host   // some browsers tend to ignore localhost in CORS
+  }));
   app.use(csp({
-    // Specify directives as normal.
     directives: {
-      defaultSrc: ["'self'", 'default.com'],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
-      styleSrc: ['style.com'],
-      fontSrc: ["'self'", 'fonts.com'],
-      imgSrc: ['img.com', 'data:'],
+      defaultSrc: ["'self'", config.host],
+      scriptSrc: ["'self'", config.host, "'unsafe-inline'"],
+      styleSrc: ["'self'", config.host],
+      fontSrc: ["'self'", config.host],
+      imgSrc: ["'self'", config.host],
+      objectSrc: ["'self'", config.host],
       sandbox: ['allow-forms', 'allow-scripts'],
-      reportUri: '/report-violation',
-      objectSrc: ["'none'"],
+      reportUri: `'self' ${config.host} /report-violation`,
       upgradeInsecureRequests: true
     },
 
