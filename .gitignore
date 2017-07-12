@@ -1,5 +1,6 @@
 # npm modules
 node_modules
+package-lock.json
 
 # bower modules
 public/lib
