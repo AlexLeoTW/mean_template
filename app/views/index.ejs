@@ -27,12 +27,9 @@
     		<a href="/signin">Signin</a>
     	<% } %>
 
-    <%# <section>
-      <input type="text" id="text1" ng-model="name">
-      <input type="text" id="text2" ng-model="name">
-    </section>%>
-
-    <%# <section ng-include="'example/views/example.client.view.html'"></section>%>
+    <script type="text/javascript">
+      window.user = <%- user || 'null' %>;
+    </script>
 
     <section ng-view></section>
 
@@ -47,5 +44,7 @@
     <script src="/example/example.client.module.js"></script>
     <script src="/example/controllers/example.client.controller.js"></script>
     <script src="/example/config/example.client.routes.js"></script>
+    <script src="/users/users.client.module.js"></script>
+    <script src="/users/services/authentication.client.service.js"></script>
   </body>
 </html>
