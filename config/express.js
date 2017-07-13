@@ -65,6 +65,7 @@ module.exports = function() {
   }));
 
   require('../app/routes/index.server.routes.js')(app);
+  require('../app/routes/echo.server.routes.js')(app);
 
   // Configure static file serving
   app.use(express.static('./public'));
