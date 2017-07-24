@@ -60,6 +60,9 @@
 
   - [ ] make HTTP RESTful request
 
+    - [x] `button`
+    - [ ] `forum`
+
 - [ ] 整合 Mongo.DB
 
 - [ ] 加入 User-Authentication 機制

@@ -1,4 +1,11 @@
 <section ng-controller="ExampleController">
-  <input type=text id=text1 ng-model=name>
-  <input type=text id=text2 ng-model=name>
+  <input type=text id=text1 ng-model="name">
+  <input type=text id=text2 ng-model="name">
+</section>
+
+<hr>
+
+<section ng-controller="EchoController">
+  <button type="button" ng-click="getResponse()">Click Me!</button>
+  <textarea readonly name="response" rows="8" ng-model="response" style="width: 100%"></textarea>
 </section>
